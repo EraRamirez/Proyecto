@@ -49,7 +49,6 @@ function unfade(element) {
 //Función usada para ocultar el menú principal
 function menu() {
     fade(document.getElementById('beginbtn'));
-    setTimeout(() => { document.getElementById('forms').style.display = 'block'; }, 1000);
 }
 
 //Función para imprimir la gráfica de tiempo/operaciones mediante fuerza bruta
@@ -1040,9 +1039,6 @@ function showCells(size) {
 //Función principal para invocar la animación por strassen o la de fuerza bruta
 function stAnima() {
     fade(document.getElementById('lockedTables'));
-    setTimeout(() => {
-        fade(document.getElementById("menu"));
-    }, 1000);
     if (strs && tableValues.length <= 8) {
         strassenAnimation(tableValues, 'strassenAnimation', 'matrixSegmented', tableValues2, 'matrixSegmented2');
     } else if (strs) {
@@ -1143,7 +1139,6 @@ function showComplexity() {
     fade(document.getElementById('bruteforceAnimation'));
     setTimeout(() => { unfade(document.getElementById('complex')) }, 1000);
     document.getElementById('lockedTables').style.display = "none";
-    document.getElementById('menu').style.display = "none";
     let c2 = document.getElementById('complexitySTS'),
         c4 = document.getElementById('complexityDACT'),
         f = document.getElementById('timeResult2'),
@@ -1207,8 +1202,9 @@ function nextStep(pasoSig, pasoAct) {
     }
     let t = document.getElementsByName(pasoSig);
     let t1 = document.getElementsByName(pasoAct);
-    t[0].style.display = 'block';
-    t1[0].style.display = 'none';
+    console.log(t1, t);
+    if (t != null && t != undefined && t.length > 0) t[0].style.display = 'block';
+    if (t1 != null && t1 != undefined && t1.length > 0) t1[0].style.display = 'none';
 
 }
 

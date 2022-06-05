@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="fonts.css" rel="stylesheet">
+    <script>
+        setTimeout(() => {
+            document.getElementById('forms').style.display = 'block';
+        }, 1000);
+    </script>
+    <title>Animations</title>
+</head>
+
+<body>
+    <header class="header container">
+        <a href="index.html" class="btn btn-info">Menú principal</a>
+    </header>
+    <div id="forms" class="container hide">
+        <div class="row align-items-center">
+            <div class="col align-items-center" id="firstAction">
+                <h2>Selecciona una opci&oacute;n</h2>
+                <div class="btn-group">
+                    <button class="btn btn-info" onclick="nmTable()">Matrices NxM</button>
+                    <button class="btn btn-info" onclick="nnTable()">Matrices NxN</button>
+                </div>
+            </div>
+            <div class="col hide" id="colMC">
+                <div>
+                    <h2>Matriz cuadrada</h2>
+                    <form method="post">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label">Ingresa el tamaño de la primera matriz cuadrada</label>
+                                <input required type="number" name="sizex1" class="form-control" placeholder="1" onChange="GetNumberx1(this.form)" />
+                                <label>Selecciona una opci&oacute;n</label>
+                                <select name="type1" class="form-select">
+                                    <option disabled default>--Selecciona una--</option>
+                                    <option value="auto">Autom&aacute;tico</option>
+                                    <option value="manual">Manual</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Ingresa el tamaño de la segunda matriz cuadrada</label>
+                                <input required type="number" name="sizex2" class="form-control" placeholder="1" onChange="testing(this.form,false)" />
+                                <label>Selecciona una opci&oacute;n</label>
+                                <select name="type2" class="form-select">
+                                    <option disabled default>--Selecciona una--</option>
+                                    <option value="auto">Autom&aacute;tico</option>
+                                    <option value="manual">Manual</option>
+                                </select>
+                                <br>
+                            </div>
+                        </div>
+
+                        <input type="button" value="Generar matriz" onclick="setSize(this.form,true)" class="btn btn-info" />
+                    </form>
+                </div>
+
+            </div>
+            <div class="col hide" id="colMN">
+                <div>
+                    <h2>Matriz de NxM</h2>
+                    <form method="post">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label">Ingresa la cantidad de filas:</label>
+                                <input required type="number" name="sizey1" class="form-control" placeholder="1" onChange="GetNumbery1(this.form)" />
+                                <label class="form-label">Ingresa la cantidad de columnas:</label>
+                                <input required type="number" name="sizex1" class="form-control" placeholder="1" onChange="GetNumberx1(this.form)" />
+                                <label class="form-label">Selecciona una opci&oacute;n</label>
+                                <select name="type1" class="form-select" required>
+                                    <option disabled default>--Selecciona una--</option>
+                                    <option value="auto">Autom&aacute;tico</option>
+                                    <option value="manual">Manual</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Ingresa la cantidad de filas:</label>
+                                <input required type="number" name="sizey2" class="form-control" placeholder="1" onChange="GetNumbery2(this.form)" />
+                                <label class="form-label">Ingresa la cantidad de columnas:</label>
+                                <input required type="number" name="sizex2" class="form-control" placeholder="1" onChange="testing(this.form,false)" />
+                                <label class="form-label">Selecciona una opci&oacute;n</label>
+                                <select name="type2" class="form-select" required>
+                                    <option disabled default>--Selecciona una--</option>
+                                    <option value="auto">Autom&aacute;tico</option>
+                                    <option value="manual">Manual</option>
+                                </select>
+                                <br>
+                            </div>
+                        </div>
+
+                        <input type="button" value="Generar matriz" onclick="setSize(this.form,false)" class="btn btn-info" />
+                    </form>
+                </div>
+            </div>
+            <div class="col" id="meme">
+                <div id="im0" class="hide">
+                    <img src="img/0.gif" class="img-responsive" />
+                    <h3>Eso es todo?</h3>
+                </div>
+                <div id="im1" class="hide">
+                    <img src="img/1.jpg" class="img-responsive" />
+                    <h3>Est&aacute; f&aacute;cil :3</h3>
+                </div>
+                <div id="im2" class="hide">
+                    <img src="img/2.jpg" class="img-responsive" />
+                    <h3>Ponme algo que me haga sudar, esto no es nada</h3>
+                </div>
+                <div id="im3" class="hide">
+                    <img src="img/3.jpg" class="img-responsive" />
+                    <h3>¿En serio?</h3>
+                </div>
+                <div id="im4" class="hide">
+                    <img src="img/4.jpg" class="img-responsive" />
+                    <h3>Nah, ¿crees que estoy jugando?</h3>
+                </div>
+                <div id="im5" class="hide">
+                    <img src="img/5.jpg" class="img-responsive" />
+                    <h3>Mmmmmm eres canijo ¡eh!</h3>
+                </div>
+                <div id="im6" class="hide">
+                    <img src="img/6.jpg" class="img-responsive" />
+                    <h3>Ah caray...</h3>
+                </div>
+                <div id="im7" class="hide">
+                    <img src="img/7.jpg" class="img-responsive" />
+                    <h3>Oye si te pido que te relajes por favor?</h3>
+                </div>
+                <div id="im8" class="hide">
+                    <img src="img/8.jpg" class="img-responsive" />
+                    <h3>¿Apoco si tienes un PC de la NASA?</h3>
+                </div>
+                <div id="im9" class="hide">
+                    <img src="img/9.jpg" class="img-responsive" />
+                    <h3>Oye yaaaaaa......</h3>
+                </div>
+                <div id="im10" class="hide">
+                    <img src="img/10.gif" class="img-responsive" />
+                    <h3>Est&aacute;s enferm@ O_O</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center container">
+        <div class="align-items-center" id="inputTables">
+            <div class="col" id="table1">
+            </div>
+            <div class="col" id="table2">
+            </div>
+        </div>
+    </div>
+    <div id="lockedTables" class="container hide">
+        <div class="row align-items-center">
+            <div class="col-12 align-items-center">
+                <h2 class="text-center" id="titleProduct"></h2>
+            </div>
+            <div class="col-6" id="table3">
+
+            </div>
+            <div class="col-6" id="table4">
+
+            </div>
+            <div class="col-12" id="table5">
+
+            </div>
+            <br>
+            <div class="col hide" id="btnProce">
+                <div class="btn-group">
+                    <button class="btn btn-info" onClick="stAnima()">Mostrar procedimiento</button>
+                    <button class="btn btn-info" onClick="location.reload()">Salir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="align-items-center container hide" id="complex">
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col table-responsive">
+                <table class="table align-middle">
+                    <thead class="table-info">
+                        <tr>
+                            <th>M&eacute;todo</th>
+                            <th>Complejidad</th>
+                            <th>Operaciones realizadas (Aproximadamente)</th>
+                            <th>Tiempo de realizaci&oacute;n</th>
+                            <th>Memoria usada a lo largo de la ejecución (Aproximadamente)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-info">
+                        <tr>
+                            <td>Método Tradicional</td>
+                            <td class="fw-bold">O(n<sup>3</sup>)</td>
+                            <td id="complexityDACT"></td>
+                            <td id="timeResult2"></td>
+                            <td id="memoryBrute"></td>
+                        </tr>
+                        <tr>
+                            <td>Strassen</td>
+                            <td class="fw-bold">O(n<sup>2.81</sup>)</td>
+                            <td id="complexitySTS"></td>
+                            <td id="timeResult3"></td>
+                            <td id="memorySts"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col hide" id="bfGraph">
+                    <div class="align-items-center">
+                        <h2>Gr&aacute;fica de tiempo de resoluci&oacute;n usando Fuerza bruta</h2>
+                    </div>
+                    <div class="row">
+                        <canvas id="Canvas" height="700" width="900"></canvas>
+                    </div>
+                </div>
+                <div class="col hide" id="stsGraphs">
+                    <div class="align-items-center">
+                        <h2>Gr&aacute;fica de tiempo de resoluci&oacute;n usado Strassen</h2>
+                    </div>
+                    <div class="row">
+                        <canvas id="Canvas1" height="700" width="900"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row hide" id="strassenAnimation">
+            <h2 class="col-12 align-items-center">Procedimiento para resolver el producto de dos matrices por Strassen</h2>
+            <h5 class="col-12"><sub>Proceso simplificado con fines prácticos por lo que puede ser posible que se necesite repetir el proceso más de una vez para obtener el resultado</sub></h5>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-9" id="steps">
+                        <div class="col-12">
+                            <h2>Explicación</h2>
+                        </div>
+                        <div id="paso1" class="col-12">
+                            <div class="row">
+                                <h3 class="col-12">Paso 1</h3>
+                                <h4 class="col-12">Segmentar nuestra matriz 'A' o 'B' de tama&ntilde;o 2<sup>n</sup> en 4 submatrices, como lo siguiente...</h4>
+                                <div class="col row" id="matrixSegmented">
+                                </div>
+                                <div class="col row" id="matrixSegmented2"></div>
+                                <div class="btn-group" id="btnOrig">
+                                    <button onclick="nextStep('paso2','paso1')" class="btn btn-info">Siguiente paso</button>
+                                    <button onclick="location.reload()" class="btn btn-info">Regresar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="paso2" class="col-12">
+                            <h3>Paso 2</h3>
+                            <h4>Obtener las ecuaciones 'P', que son las que nos ayudarán a resolver el producto.</h4>
+                            <div class="btn-group" id="btnS2">
+                                <button onclick="nextStep('p1','btnS2')" class="btn btn-info">Comenzar</button>
+                                <button onclick="backStep('paso2','paso1')" class="btn btn-info">Regresar</button>
+                            </div>
+                            <div id="p1" class="row">
+                                <div class="col-12">
+                                    <h4>P<sub>1</sub> = A * ( F - H )</h4>
+                                </div>
+                                <div class="col">
+                                    <h5>A</h5>
+                                    <div name="A"></div>
+                                </div>
+                                <div class="col">
+                                    <h5>F</h5>
+                                    <div name="F"></div>
+                                </div>
+                                <div class="col">
+                                    <h5>H</h5>
+                                    <div name="H"></div>
+                                </div>
+                                <div class="col">
+                                    <h4>F - H = K</h4>
+                                    <div class="row">
+                                        <div name="F" class="col-4"></div>
+                                        <div name="H" class="col-4"></div>
+                                        <div name="rfh" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h4>A * K</h4>
+                                    <div class="row">
+                                        <div name="A" class="col-4"></div>
+                                        <div name="rfh" class="col-4"></div>
+                                        <div name="rp1" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h3>Resultado: P<sub>1</sub></h3>
+                                </div>
+                                <div class="col-12" name="rp1"></div>
+                                <div class="btn-group col">
+                                    <button onclick="nextStep('p2','p1')" class="btn btn-info">Siguiente</button>
+                                    <button onclick="backStep('p1','paso2')" class="btn btn-info">Regresar</button>
+                                </div>
+                            </div>
+                            <div id="p2" class="row">
+                                <div class="col-12">
+                                    <h4>P<sub>2</sub> = H * ( A + B )</h4>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h5>A</h5>
+                                            <div name="A"></div>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5>B</h5>
+                                            <div name="B"></div>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5>H</h5>
+                                            <div name="H"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h4>A + B = K</h4>
+                                    <div class="row">
+                                        <div name="A" class="col-4"></div>
+                                        <div name="B" class="col-4"></div>
+                                        <div name="sab" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h4>H * K</h4>
+                                    <div class="row">
+                                        <div name="H" class="col-4"></div>
+                                        <div name="sab" class="col-4"></div>
+                                        <div name="rp2" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h3>Resultado: P<sub>2</sub></h3>
+                                </div>
+                                <div class="col-12" name="rp2"></div>
+                                <div class="btn-group">
+                                    <button onclick="nextStep('p3','p2')" class="btn btn-info">Siguiente</button>
+                                    <button onclick="backStep('p2','p1')" class="btn btn-info">Regresar</button>
+                                </div>
+                            </div>
+                            <div id="p3" class="row">
+                                <div class="col-12">
+                                    <h4>P<sub>3</sub> = E * ( C + D )</h4>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h5>C</h5>
+                                            <div name="C"></div>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5>D</h5>
+                                            <div name="D"></div>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5>E</h5>
+                                            <div name="E"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h4>C + D = K</h4>
+                                    <div class="row">
+                                        <div name="C" class="col-4"></div>
+                                        <div name="D" class="col-4"></div>
+                                        <div name="scd" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h4>E * K</h4>
+                                    <div class="row">
+                                        <div name="E" class="col-4"></div>
+                                        <div name="scd" class="col-4"></div>
+                                        <div name="rp3" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h3>Resultado: P<sub>3</sub></h3>
+                                </div>
+                                <div class="col-12" name="rp3"></div>
+
+                                <div class="btn-group">
+                                    <button onclick="nextStep('p4','p3')" class="btn btn-info">Siguiente</button>
+                                    <button onclick="backStep('p3','p2')" class="btn btn-info">Regresar</button>
+                                </div>
+                            </div>
+                            <div id="p4" class="row">
+                                <div class="col-12">
+                                    <h4>P<sub>4</sub> = D * ( G - E )</h4>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h5>G</h5>
+                                            <div name="G"></div>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5>D</h5>
+                                            <div name="D"></div>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5>E</h5>
+                                            <div name="E"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h4>G - E = K</h4>
+                                    <div class="row">
+                                        <div name="G" class="col-4"></div>
+                                        <div name="E" class="col-4"></div>
+                                        <div name="rge" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h4>D * K</h4>
+                                    <div class="row">
+                                        <div name="D" class="col-4"></div>
+                                        <div name="rge" class="col-4"></div>
+                                        <div name="rp4" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h3>Resultado: P<sub>4</sub></h3>
+                                </div>
+                                <div class="col-12" name="rp4"></div>
+                                <div class="btn-group">
+                                    <button onclick="nextStep('p5','p4')" class="btn btn-info">Siguiente</button>
+                                    <button onclick="backStep('p4','p3')" class="btn btn-info">Regresar</button>
+                                </div>
+                            </div>
+                            <div id="p5" class="row">
+                                <div class="col-12">
+                                    <h4>P<sub>5</sub> = ( A + D ) * ( E + H )</h4>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <h5>A</h5>
+                                            <div name="A"></div>
+                                        </div>
+                                        <div class="col-3">
+                                            <h5>D</h5>
+                                            <div name="D"></div>
+                                        </div>
+                                        <div class="col-3">
+                                            <h5>E</h5>
+                                            <div name="E"></div>
+                                        </div>
+                                        <div class="col-3">
+                                            <h5>H</h5>
+                                            <div name="H"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h4>A + D = K</h4>
+                                            <div class="row">
+                                                <div name="A" class="col-4"></div>
+                                                <div name="D" class="col-4"></div>
+                                                <div name="sad" class="col-4"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <h4>E + H = J</h4>
+                                            <div class="row">
+                                                <div name="E" class="col-4"></div>
+                                                <div name="H" class="col-4"></div>
+                                                <div name="seh" class="col-4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h4>J * K</h4>
+                                    <div class="row">
+                                        <div name="sad" class="col-4"></div>
+                                        <div name="seh" class="col-4"></div>
+                                        <div name="rp5" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h3>Resultado: P<sub>5</sub></h3>
+                                </div>
+                                <div class="col-12" name="rp3"></div>
+                                <div class="btn-group">
+                                    <button onclick="nextStep('p6','p5')" class="btn btn-info">Siguiente</button>
+                                    <button onclick="backStep('p5','p4')" class="btn btn-info">Regresar</button>
+                                </div>
+                            </div>
+                            <div id="p6" class="row">
+                                <div class="col-12">
+                                    <h4>P<sub>6</sub> = ( B - D ) * ( G + H )</h4>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <h5>B</h5>
+                                            <div name="B"></div>
+                                        </div>
+                                        <div class="col-3">
+                                            <h5>D</h5>
+                                            <div name="D"></div>
+                                        </div>
+                                        <div class="col-3">
+                                            <h5>G</h5>
+                                            <div name="G"></div>
+                                        </div>
+                                        <div class="col-3">
+                                            <h5>H</h5>
+                                            <div name="H"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h4>B - D = K</h4>
+                                            <div class="row">
+                                                <div name="B" class="col-4"></div>
+                                                <div name="D" class="col-4"></div>
+                                                <div name="rbd" class="col-4"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <h4>G + H = J</h4>
+                                            <div class="row">
+                                                <div name="G" class="col-4"></div>
+                                                <div name="H" class="col-4"></div>
+                                                <div name="sgh" class="col-4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h4>J * K</h4>
+                                    <div class="row">
+                                        <div name="rbd" class="col-4"></div>
+                                        <div name="sgh" class="col-4"></div>
+                                        <div name="rp5" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h3>Resultado: P<sub>6</sub></h3>
+                                </div>
+                                <div class="col-12" name="rp6"></div>
+                                <div class="btn-group">
+                                    <button onclick="nextStep('p7','p6')" class="btn btn-info">Siguiente</button>
+                                    <button onclick="backStep('p6','p5')" class="btn btn-info">Regresar</button>
+                                </div>
+                            </div>
+                            <div id="p7" class="row">
+                                <div class="col-12">
+                                    <h4>P<sub>7</sub> = ( A - C ) * ( E + F )</h4>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <h5>A</h5>
+                                            <div name="A"></div>
+                                        </div>
+                                        <div class="col-3">
+                                            <h5>C</h5>
+                                            <div name="C"></div>
+                                        </div>
+                                        <div class="col-3">
+                                            <h5>E</h5>
+                                            <div name="E"></div>
+                                        </div>
+                                        <div class="col-3">
+                                            <h5>F</h5>
+                                            <div name="F"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h4>A - C = K</h4>
+                                            <div class="row">
+                                                <div name="A" class="col-4"></div>
+                                                <div name="C" class="col-4"></div>
+                                                <div name="rac" class="col-4"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <h4>E + F = J</h4>
+                                            <div class="row">
+                                                <div name="E" class="col-4"></div>
+                                                <div name="F" class="col-4"></div>
+                                                <div name="sef" class="col-4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h4>J * K</h4>
+                                    <div class="row">
+                                        <div name="rac" class="col-4"></div>
+                                        <div name="sef" class="col-4"></div>
+                                        <div name="rp5" class="col-4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h3>Resultado: P<sub>7</sub></h3>
+                                </div>
+                                <div class="col-12" name="rp7"></div>
+                                <div class="btn-group">
+                                    <button onclick="nextStep('paso3','paso2')" class="btn btn-info">Siguiente</button>
+                                    <button onclick="backStep('p7','p6')" class="btn btn-info">Regresar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="paso3" class="col-12">
+                            <h3>Paso 3</h3>
+                            <h4>Para el paso 3, lo que haremos ahora es usar las 7 P's que obtuvimos en el paso anterior y las juntamos en 4 ecuaciones para obtener la matriz resultante.</h4>
+                            <div class="btn-group col" id="btnP3">
+                                <button onclick="nextStep('pasoM','btnP3')" class="btn btn-info">Mostrar</button>
+                                <button onclick="backStep('paso3','paso2')" class="btn btn-info">Regresar</button>
+                            </div>
+                            <div class="row" id="pasoM">
+                                <div class="col-12">
+                                    <div>
+                                        <h3>M<sub>1, 1</sub> = P<sub>5</sub> + P<sub>4</sub> - P<sub>2</sub> + P<sub>6</sub></h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col" name="rp5"></div>
+                                        <div class="col" name="rp4"></div>
+                                        <div class="col" name="rp2"></div>
+                                        <div class="col" name="rp6"></div>
+                                        <div class="col-12" id="m11"></div>
+                                    </div>
+                                    <div>
+                                        <h3>M<sub>1, 2</sub> = P<sub>1</sub> + P<sub>2</sub></h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col" name="rp1"></div>
+                                        <div class="col" name="rp2"></div>
+                                        <div class="col-12" id="m12"></div>
+                                    </div>
+                                    <div>
+                                        <h3>M<sub>2, 1</sub> = P<sub>3</sub> + P<sub>4</sub></h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col" name="rp3"></div>
+                                        <div class="col" name="rp4"></div>
+                                        <div class="col-12" id="m21"></div>
+                                    </div>
+                                    <div>
+                                        <h3>M<sub>2, 2</sub> = P<sub>1</sub> + P<sub>5</sub> - P<sub>3</sub> - P<sub>7</sub></h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col" name="rp1"></div>
+                                        <div class="col" name="rp5"></div>
+                                        <div class="col" name="rp3"></div>
+                                        <div class="col" name="rp7"></div>
+                                        <div class="col-12" id="m22"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="btn-group col">
+                                            <button onclick="nextStep('paso4','paso3')" class="btn btn-info">Siguiente</button>
+                                            <button onclick="backStep('paso3','paso2')" class="btn btn-info">Regresar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="paso4" class="col-12">
+                            <h3>Paso 4</h3>
+                            <h4>En el paso 4 lo único que tenemos que hacer es juntar las M's para obtener la matriz resultante</h4>
+                            <div id="results"></div>
+                            <div class="btn-group col">
+                                <button onclick="nextStep('complex','paso4')" class="btn btn-info">Siguiente</button>
+                                <button onclick="backStep('paso4','paso3')" class="btn btn-info">Regresar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3" id="code">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2>Representación en código</h2>
+                            </div>
+                            <div class="col-12" id="codeExecuting">
+                                <div name="paso1" class="hide">
+                                    <div>
+                                        <code class="codeDiv">
+                                            <span>let</span> <var>a</var>, <var>b</var>, <var>c</var>, <var>d</var>, <var>e</var>, <var>f</var>, <var>g</var>, <var>h</var>, <var>halfA</var>=<var>A.length</var>/2, <var>halfB</var>=<var>B.length</var>/2;
+                                            <br>
+                                            <var>a</var> = <span>getSubMatrix</span>(<var>A</var>, 0, <var>halfA</var>, 0, <var>halfA</var>);
+                                            <br>
+                                            <var>b</var> = <span>getSubMatrix</span>(<var>A</var>, <var>halfA</var>, 0, <var>halfA</var>);
+                                            <br>
+                                            <var>c</var> = <span>getSubMatrix</span>(<var>A</var>, 0,<var>halfA</var>, <var>halfA</var>, <var>A.length</var>);
+                                            <br>
+                                            <var>d</var> = <span>getSubMatrix</span>(<var>A</var>, <var>halfA</var>, <var>A.length</var>, <var>halfA</var>, <var>A.length</var>);
+                                            <br>
+                                            <var>e</var> = <span>getSubMatrix</span>(<var>B</var>, 0, <var>halfB</var>, 0, <var>halfB</var>);
+                                            <br>
+                                            <var>f</var> = <span>getSubMatrix</span>(<var>B</var>, <var>halfB</var>, <var>B.length</var>, 0, <var>halfB</var>);
+                                            <br>
+                                            <var>g</var> = <span>getSubMatrix</span>(<var>B</var>, 0, <var>halfB</var>, <var>halfB</var>, <var>B.length</var>);
+                                            <br>
+                                            <var>h</var> = <span>getSubMatrix</span>(<var>B</var>, <var>halfB</var>, <var>B.length</var>, <var>halfB</var>, <var>B.length</var>);
+                                        </code>
+                                    </div>
+                                </div>
+                                <div name="paso2" class="hide">
+                                    <div name="p1" class="hide">
+                                        <div>
+                                            <code class="codeDiv">
+                                                <span>let</span> <var>p1</var> = <span>strassen</span>(<var>a</var>, <span>subtractionMatrix(<var>f</var>, <var>h</var>)</span>),
+                                            </code>
+                                        </div>
+                                    </div>
+                                    <div name="p2" class="hide">
+                                        <div>
+                                            <code class="codeDiv">
+                                                <var>p2</var> = <span>strassen</span>(<span>additionMatrix(<var>a</var>, <var>b</var>)</span>, <var>h</var>),
+                                            </code>
+                                        </div>
+                                    </div>
+                                    <div name="p3" class="hide">
+                                        <div>
+                                            <code class="codeDiv">
+                                                <var>p3</var> = <span>strassen</span>(<span>additionMatrix(<var>c</var>, <var>d</var>)</span>, <var>e</var>),
+                                            </code>
+                                        </div>
+                                    </div>
+                                    <div name="p4" class="hide">
+                                        <div>
+                                            <code class="codeDiv">
+                                                <var>p4</var> = <span>strassen</span>(<var>d</var>, <span>subtractionMatrix(<var>g</var>, <var>e</var>)</span>),
+                                            </code>
+                                        </div>
+                                    </div>
+                                    <div name="p5" class="hide">
+                                        <div>
+                                            <code class="codeDiv">
+                                                <var>p5</var> = <span>strassen</span>(<span>additionMatrix(<var>a</var>, <var>d</var>)</span>, <span>additionMatrix(<var>e</var>, <var>h</var>)</span>),
+                                            </code>
+                                        </div>
+                                    </div>
+                                    <div name="p6" class="hide">
+                                        <div>
+                                            <code class="codeDiv">
+                                                <var>p6</var> = <span>strassen</span>(<span>subtractionMatrix(<var>b</var>, <var>d</var>)</span>, <span>additionMatrix(<var>g</var>, <var>h</var>)</span>),
+                                            </code>
+                                        </div>
+                                    </div>
+                                    <div name="p7" class="hide">
+                                        <div>
+                                            <code class="codeDiv">
+                                                <var>p7</var> = <span>strassen</span>(<span>subtractionMatrix(<var>a</var>, <var>c</var>)</span>, <span>additionMatrix(<var>e</var>, <var>f</var>)</span>),
+                                            </code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div name="paso3" class="hide">
+                                    <div class="hide" name="pasoM">
+                                        <div>
+                                            <code class="codeDiv">
+                                                <var>f1</var> = <span>additionMatrix(<var>p5</var>, <var>p4</var>),</span>
+                                                <br>
+                                                <var>f2</var> = <span>subtractionMatrix(<var>f1</var>, <var>p2</var>),</span>
+                                                <br>
+                                                <var>c11</var> = <span>additionMatrix(<var>f2</var>, <var>p6</var>),</span>
+                                                <br>
+                                                <var>c12</var> = <span>additionMatrix(<var>p1</var>, <var>p2</var>),</span>
+                                                <br>
+                                                <var>c21</var> = <span>additionMatrix(<var>p3</var>, <var>p4</var>);</span>
+                                                <br>
+                                                <var>f1</var> = <span>additionMatrix(<var>p1</var>, <var>p5</var>);</span>
+                                                <br>
+                                                <var>f2</var> = <span>subtractionMatrix(<var>f1</var>, <var>p3</var>);</span>
+                                                <br>
+                                                <span>let</span> <var>c22</var> = <span>subtractionMatrix(<var>f2</var>, <var>p7</var>);</span>
+                                            </code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div name="paso4" class="hide">
+                                    <div>
+                                        <code class="codeDiv">
+                                            <span>let</span> <var>result</var> = <span>concatMatrix(<var>c11</var>, <var>c12</var>, <var>c21</var>, <var>c22</var>)</span>;
+                                            <br>
+                                            <span>return</span> <var>result</var>;
+                                        </code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bruteforceAnimation" class="row hide">
+            <div id="btProce" class="row">
+                <h2>Producto de matrices usando el método tradicional</h2>
+                <h3>Cuando hacemos el producto de matrices por el método tradicional, es el más simple que podemos hacer.</h3>
+                <h3>Sin embargo puede llegar a ser más tardado que otros métodos.</h3>
+                <h3>En éste, tenemos que tomar una Fila de la matriz A y multiplicar el Elemento A<sub>i, j</sub> y multiplicarlo por el Elemento B<sub>j, k</sub> de la Matriz B</h3>
+                <h3>Y después sumaremos así por cada fila; de tal forma que la ecuación general es: &Sigma;A<sub>i, j</sub> * B<sub>j, k</sub></h3>
+                <div class="btn-group col-12" id="btnBFAnima">
+                    <button onclick="loadTablesBfAnima()" class="btn btn-info">Mostrar animación</button>
+                    <button onclick="location.reload()" class="btn btn-info">Salir</button>
+                </div>
+            </div>
+            <div id="tablesAnima" class="row hide">
+                <div class="row">
+                    <div class="col-6" id="MA">
+                    </div>
+                    <div class="col-6" id="MB">
+                    </div>
+                    <div class="col-12" id="MR"></div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-info" onclick="showComplexity()">Mostrar resultados</button>
+                    <button class="btn btn-info" onclick="location.reload()">Salir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="code.js"></script>
+</body>
+
+</html>
