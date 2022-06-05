@@ -1,0 +1,58 @@
+@font-face {
+    font-family: "QuickSand";
+    src: url("bootstrap/fonts/Quicksand/Quicksand-VariableFont_wght.ttf") format("ttf");
+}
+
+.ups {
+    margin-top: 1rem;
+}
+
+.blues {
+    color: #001b48;
+}
+
+.blues1 {
+    color: #018abe;
+}
+
+img {
+    height: 300px;
+    width: 300px;
+}
+
+.imgExcept {
+    height: 100%;
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.codeDiv {
+    color: black;
+}
+
+.codeDiv var {
+    color: green;
+}
+
+.codeDiv span {
+    color: magenta;
+}
+
+.codeDiv p {
+    tab-size: 2;
+}
+
+.bgb {
+    background-color: black;
+}
+
+.tab {
+    tab-size: 2;
+}
+
+.whiteText {
+    color: white;
+}
