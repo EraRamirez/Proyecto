@@ -363,7 +363,7 @@ function createTable(condition, tableSizeX, tableSizeY, table) {
             }
         }
         if (!ma) ma = true;
-        tables = "<center><table class='table table-stripped table-info'><tbody>" + columns + "</tbody></table></center>";
+        tables = "<div class='col'><table class='table table-stripped table-info'><tbody>" + columns + "</tbody></table></div>";
     } else {
 
         let columns = "";
@@ -589,10 +589,8 @@ function dropValues(A, ids) {
 //Crea submatrices de la tabla A, con un identificador que se guarda en divIds, la cual se usa en la función unHideMatrixes;
 //el parámetro Index, es meramente informativo para generar un nombre
 //Otable permite saber quien es el padre de la submatriz
-function createSubMatrixes(A, id, index, otable) {
-    if (A.length > 8)
-        alert("No se mostrará la segmentación por cuestiones de optimización y visualización");
-    else if (A.length > 1) {
+function createSubMatrixes(A, id, index, otable, son1, son2, son3, son4) {
+    if (A.length > 1) {
         let div1 = document.createElement('div'),
             div2 = document.createElement('div'),
             div3 = document.createElement('div'),
@@ -615,7 +613,7 @@ function createSubMatrixes(A, id, index, otable) {
             idDiv2 = ("subt_" + createRandId(index) + 1) + "_" + 1,
             idDiv3 = ("subt_" + createRandId(index) + 2) + "_" + 2,
             idDiv4 = ("subt_" + createRandId(index) + 3) + "_" + 3,
-            tableClass = "table table-responsive table-info",
+            tableClass = "table table-responsive table-",
             divClass = "col table",
             div2Class = "row",
             a, b, c, d;
@@ -623,10 +621,10 @@ function createSubMatrixes(A, id, index, otable) {
         divsIds.push(idDiv2);
         divsIds.push(idDiv3);
         divsIds.push(idDiv4);
-        table1.setAttribute('class', tableClass);
-        table2.setAttribute('class', tableClass);
-        table3.setAttribute('class', tableClass);
-        table4.setAttribute('class', tableClass);
+        table1.setAttribute('class', tableClass + son1);
+        table2.setAttribute('class', tableClass + son2);
+        table3.setAttribute('class', tableClass + son3);
+        table4.setAttribute('class', tableClass + son4);
         div1.setAttribute('id', idDiv1);
         div2.setAttribute('id', idDiv2);
         div3.setAttribute('id', idDiv3);
@@ -652,14 +650,18 @@ function createSubMatrixes(A, id, index, otable) {
         div5.appendChild(div3);
         div5.appendChild(div4);
         father.appendChild(div5);
+        fade(div1);
         dropValues(m11, a.second);
+        fade(div2);
         dropValues(m12, b.second);
+        fade(div3);
         dropValues(m21, c.second);
+        fade(div4);
         dropValues(m22, d.second);
-        createSubMatrixes(m11, idDiv1, index + 1, otable);
-        createSubMatrixes(m12, idDiv2, index + 2, otable);
-        createSubMatrixes(m21, idDiv3, index + 3, otable);
-        createSubMatrixes(m22, idDiv4, index + 4, otable);
+        createSubMatrixes(m11, idDiv1, index + 1, otable, son1, son2, son3, son4);
+        createSubMatrixes(m12, idDiv2, index + 2, otable, son1, son2, son3, son4);
+        createSubMatrixes(m21, idDiv3, index + 3, otable, son1, son2, son3, son4);
+        createSubMatrixes(m22, idDiv4, index + 4, otable, son1, son2, son3, son4);
     }
 }
 
@@ -687,17 +689,36 @@ function printTable(A) {
     return table;
 }
 
+function printTable1(A) {
+    let n = A.length;
+    let m = A[0].length;
+    let table = "<div class='table-responsive'><table class='table'><tbody>";
+    for (let i = 0; i < n; i++) {
+        table += "<tr>";
+        for (let j = 0; j < m; j++) {
+            let td = "<td";
+            if (j < (m / 2) && i < (n / 2)) td += " class='table-primary'>";
+            else if (j >= (m / 2) && i < (n / 2)) td += " class='table-secondary'>";
+            else if (j < (m / 2) && i >= (n / 2)) td += " class='table-success'>";
+            else td += " class='table-warning'>";
+            table += td + A[i][j] + "</td>";
+        }
+        table += "</tr>";
+    }
+    table += "</tbody></table></div></div>";
+    return table;
+}
 //Crea la animación de segmentar la matrix de X tabla
 //Se le da la Tabla A y posteriormente la id del DIV dónde se guarda el padre y la id que se le quiere dar
 function matrixSegmentationAnimation(A, idOri, idMA) {
     document.getElementById(idOri).style.display = 'block';
     let mA = document.getElementById(idMA);
     let t = "<h2>Matriz original</h2>";
-    mA.innerHTML = t + printTable(A);
-    createSubMatrixes(A, idMA, 0, idMA);
-    unHideMatrixes();
-}
+    mA.innerHTML = t + printTable1(A);
+    createSubMatrixes(A, idMA, 0, idMA, "primary", "secondary", "success", "warning");
+    setTimeout(() => { unHideMatrixes(); }, 3000);
 
+}
 
 //Algoritmo para obtener mediante fuerza bruta el producto de dos matrices
 function bruteForce(A, B) {
@@ -936,7 +957,7 @@ function strassenAnimation(A, idOri, idMA, B, idMB) {
 
 //Genera un color aleatorio para la animación de las tablas
 function getColor(color) {
-    if (color > 7) color -= 8;
+    if (color > 4) color -= 5;
     switch (color) {
         case 0:
             return "primary";
@@ -945,15 +966,9 @@ function getColor(color) {
         case 2:
             return "success";
         case 3:
-            return "danger";
-        case 4:
             return "warning";
-        case 5:
-            return "info";
-        case 6:
-            return "light";
-        default:
-            return "dark";
+        case 4:
+            return "danger";
     }
 }
 
@@ -1039,7 +1054,7 @@ function showCells(size) {
 //Función principal para invocar la animación por strassen o la de fuerza bruta
 function stAnima() {
     fade(document.getElementById('lockedTables'));
-    if (strs && tableValues.length <= 8) {
+    if (strs && tableValues.length <= 16) {
         strassenAnimation(tableValues, 'strassenAnimation', 'matrixSegmented', tableValues2, 'matrixSegmented2');
     } else if (strs) {
         alert("Para poder ver una animación del procedimiento, se recomienda usar matrices de 8x8 o 4x4");

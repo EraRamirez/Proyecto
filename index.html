@@ -11,9 +11,7 @@
 </head>
 
 <body>
-    <video autoplay muted loop height="300" style="width:100%;">
-        <source src="vid/VIDEO PAG PRINCIPAL.mp4" type="video/mp4">
-    </video>
+    <img src="img/video intro ADA.gif" style="width: 100%; height:500px;">
     <div class="container" id="menu">
         <div class="row">
             <div class="col-12">
@@ -58,21 +56,34 @@
                     <p>El algoritmo est&aacute; basado en Divide and conquer o divide y vencer&aacute;s. De tal forma que la idea es que si tenemos una Matriz de NxN con N>2 pues la reduzcamos a matrices m&aacute;s pequeñas de tal forma que podamos hacer
                         7 operaciones en las submatrices pequeñas. De tal forma que cuando tengamos una matriz NxN dónde N=2, pues se haga lo siguiente;
                     </p>
-                    <img class="img-fluid" src="img/s1.png">
-                    <p>Para que con ello obtengamos:</p>
-                    <img class="img-fluid" src="img/s2.png">
-                    <p>Y con ésto obtenemos lo siguiente:</p>
-                    <img class="img-fluid" src="img/s3.png">
-                    <p>Y este proceso lo repetiremos en todas las submatrices de la matriz original. De tal forma que con ésto se resuelve la matriz completa usado strassen con divide y vencerás.</p>
-                    <br>
+                    <center><img class="img-fluid" src="img/s1.png">
+                        <p>Para que con ello obtengamos:</p>
+                        <img class="img-fluid" src="img/s2.png">
+                        <p>Y con ésto obtenemos lo siguiente:</p>
+                        <img class="img-fluid" src="img/s3.png">
+                        <p>Y este proceso lo repetiremos en todas las submatrices de la matriz original. De tal forma que con ésto se resuelve la matriz completa usado strassen con divide y vencerás.</p>
+                        <br>
+                    </center>
                     <div class="row ups align-items-center">
                         <h3>Video informativo</h3>
-                        <div class="col-12 ">
-                            <video autoplay controls style="width:600px; height:600px;">
+                        <center>
+                            <div class="col-12">
+                                <video autoplay controls style="width:600px; height:600px;">
                                 <source src="vid/El algoritmo de Strassen y una nueva forma de multiplicar matrices - Shorts.mp4">
                             </video>
+                            </div>
+                        </center>
+                    </div>
+                    <br>
+                    <div class="row ups">
+                        <h3>Video explicativo</h3>
+                        <div class="col-12">
+                            <center><video autoplay controls style="width:100%;">
+                                <source src="vid/METODO DE STRASSEN .mp4" type="video/mp4">
+                            </video></center>
                         </div>
                     </div>
+
                     <br>
                     <h3>M&aacute;s informaci&oacute;n</h3>
                     <br>
@@ -115,7 +126,7 @@
                     <br>
                     <div class="row ups">
                         <div class="col">
-                            <img src="img/Imagen1.png" alt="procedimiento" class="img-fluid">
+                            <center><img src="img/Imagen1.png" alt="procedimiento" class="img-fluid"></center>
                         </div>
                         <div class="col">
                             <p>Para poder realizar la multiplicación entre 2 matrices, se debe cumplir la siguiente restricción:</p>
@@ -140,28 +151,28 @@
                             </p>
                         </div>
                         <div class="col">
-                            <img src="img/Imagen2.png" alt="metodo tradicional" class="img-fluid">
+                            <center><img src="img/Imagen2.png" alt="metodo tradicional" class="img-fluid"></center>
                         </div>
                     </div>
                     <br>
                     <div class="row upss">
                         <h3>Código y complejidad</h3>
                         <p>En programación, el método tradicional se encuentra realizado por una serie de ciclos que van obteniendo uno a uno el resultado de cada elemento de la matriz resultante. El código estaría ejemplificado tal que así:</p>
-                        <img class="img-fluid" src="img/Imagen3.png" alt="código" style="width:50%">
+                        <center><img class="img-fluid" src="img/Imagen3.png" alt="código" style="width:50%"></center>
                         <p>Este método es conocido como método ingenuo o por fuerza bruta. Como podemos ver en el código, se hace la comprobación de que el numero de filas sea igual al numero de matrices de las respectivas matrices.
                         </p>
-                        <img class="img-fluid" src="img/imagen4.png" alt="codigop2" style="width:50%">
+                        <center><img class="img-fluid" src="img/imagen4.png" alt="codigop2" style="width:50%"></center>
                         <p>Y en este segmento se obtienen los resultados a sumar en cada elemento de la matriz C.</p>
-                        <img class="img-fluid" src="img/imagen5.png" alt="codigop3" style="width:50%">
+                        <center><img class="img-fluid" src="img/imagen5.png" alt="codigop3" style="width:50%"></center>
                     </div>
                     <br>
                 </div>
                 <div class="row ups">
                     <h3>Video explicativo</h3>
                     <div class="col-12">
-                        <video autoplay controls style="width:100%;">
+                        <center><video autoplay controls style="width:100%;">
                             <source src="vid/FUERZA BRUTA.mp4" type="video/mp4">
-                        </video>
+                        </video></center>
                     </div>
                 </div>
             </div>
