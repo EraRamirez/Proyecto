@@ -675,6 +675,7 @@ function unHideMatrixes() {
 
 //Genera una cadena con el código de una tabla html basada en la matriz que se le da
 function printTable(A) {
+    console.log(A);
     let n = A.length;
     let m = A[0].length;
     let table = "<div class='table-responsive'><table class='table table-striped table-info'><tbody>";
@@ -722,20 +723,25 @@ function matrixSegmentationAnimation(A, idOri, idMA) {
 
 //Algoritmo para obtener mediante fuerza bruta el producto de dos matrices
 function bruteForce(A, B) {
-    let result = new Array();
-    for (let i = 0; i < A.length; i++) {
-        let cols = new Array();
-        for (let j = 0; j < A[0].length; j++) {
-            let r = 0;
-            for (let k = 0; k < B.length; k++) {
-                let t = A[i][k] * B[k][j];
-                r += t;
+    if (A[0].length == B.length) {
+        let result = new Array();
+        for (let i = 0; i < A.length; i++) {
+            let cols = new Array();
+            for (let j = 0; j < B[0].length; j++) {
+                let r = 0;
+                for (let k = 0; k < B.length; k++) {
+                    let t = A[i][k] * B[k][j];
+                    r += t;
+                }
+                cols.push(r);
             }
-            cols.push(r);
+            result.push(cols);
         }
-        result.push(cols);
+        console.log(result);
+        return result;
+    } else {
+        return undefined;
     }
-    return result;
 }
 
 //Obtiene una submatriz de una matriz, dando primero la matriz completa, de qué columna a qué columna irá y de qué fila a qué fila irá
@@ -917,7 +923,7 @@ function strassenAnimation(A, idOri, idMA, B, idMB) {
     printHTMLTable(tagD, printTable(d));
     printHTMLTable(tagE, printTable(e));
     printHTMLTable(tagF, printTable(f));
-    printHTMLTable(tagG, printTable(f));
+    printHTMLTable(tagG, printTable(g));
     printHTMLTable(tagH, printTable(h));
     printHTMLTable(rfh, printTable(subtractionMatrix(f, h)));
     printHTMLTable(rp1, printTable(p1));
@@ -1024,7 +1030,7 @@ function printTableR(A) {
 //Cambia el color del texto de la tabla resultante con el fin de simular que no existen los valores
 function hideCells(R) {
     for (let i = 0, x = 0; i < R.length; i++) {
-        for (let j = 0; j < R.length; j++, x++) {
+        for (let j = 0; j < R[0].length; j++, x++) {
             let id = "cell_" + x;
             document.getElementById(id).setAttribute('class', 'whiteText');
         }
@@ -1032,18 +1038,18 @@ function hideCells(R) {
 }
 
 //Realiza el barrido que se muestra en la animación, mostrando un color para X fila, Y columna y Z celda
-function showCells(size) {
-    for (let i = 0, x = 0, time = 1000; i < size; i++) {
+function showCells(A, B) {
+    for (let i = 0, x = 0, time = 1000; i < A.length; i++) {
         let idrow = "row_" + i,
             row = document.getElementById(idrow),
             color = "table-" + getColor(i);
-        for (let j = 0; j < size; j++, x++, time += 1000) {
+        for (let j = 0; j < B[0].length; j++, x++, time += 1000) {
             let idcols = "col_" + j,
                 col = document.getElementsByName(idcols),
                 idcell = "cell_" + x,
                 cell = document.getElementById(idcell);
             setTimeout(() => { row.setAttribute('class', color); }, time);
-            for (let k = 0; k < size; k++) {
+            for (let k = 0; k < B.length; k++) {
                 setTimeout(() => { col[k].setAttribute('class', color); }, time);
             }
             setTimeout(() => { cell.setAttribute('class', color); }, time);
@@ -1199,7 +1205,7 @@ function bruteAnimation(A, B, R) {
     mB.innerHTML = printTableB(B);
     mR.innerHTML = printTableR(R);
     hideCells(R);
-    showCells(R.length);
+    showCells(A, B);
 }
 
 //Función usada para retroceder un paso en la demostración
@@ -1235,4 +1241,13 @@ function info(infos) {
     }
     fade(y);
     unfade(x);
+}
+let pos = 0;
+
+function nextSlide() {
+    let id = "poster" + pos + 1;
+    console.log("hola");
+    let x = document.getElementById(id);
+    x.setAttribute('class', 'active');
+
 }

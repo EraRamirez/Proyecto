@@ -7,25 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="fonts.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.js"></script>
     <title>Erandi</title>
 </head>
 
 <body>
     <img src="img/video intro ADA.gif" style="width: 100%; height:500px;">
     <div class="container" id="menu">
-        <div class="row">
-            <div class="col-12">
 
-            </div>
-            <div class="col-12 ups">
-                <div class="card bg-dark text-white">
-                    <img src="img/banner.png" class="card-img imgExcept" alt="Banner">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title blues1 fs-1">Producto de matrices</h5>
-                        <p class="card-text blues1 fs-3">Bienvenido / Bienvenida, a continuaci&oacute;n te sumerger&aacute;s en qu&eacute; es, c&oacute;mo se hace y qu&eacute; m&eacute;todos hay para resolver productos de matrices.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="row">
             <div class="col align-items-center">
                 <div class="card mb-3 ups">
                     <img src="img/tradi.jpeg" class="card-img-top imgExcept" alt="Tradicional">
@@ -68,9 +58,9 @@
                         <h3>Video informativo</h3>
                         <center>
                             <div class="col-12">
-                                <video autoplay controls style="width:600px; height:600px;">
-                                <source src="vid/El algoritmo de Strassen y una nueva forma de multiplicar matrices - Shorts.mp4">
-                            </video>
+                                <video controls style="width:600px; height:600px;">
+                                    <source src="vid/El algoritmo de Strassen y una nueva forma de multiplicar matrices - Shorts.mp4">
+                                </video>
                             </div>
                         </center>
                     </div>
@@ -78,9 +68,9 @@
                     <div class="row ups">
                         <h3>Video explicativo</h3>
                         <div class="col-12">
-                            <center><video autoplay controls style="width:100%;">
-                                <source src="vid/METODO DE STRASSEN .mp4" type="video/mp4">
-                            </video></center>
+                            <center><video controls style="width:100%;">
+                                    <source src="vid/METODO DE STRASSEN .mp4" type="video/mp4">
+                                </video></center>
                         </div>
                     </div>
 
@@ -156,7 +146,7 @@
                     </div>
                     <br>
                     <div class="row upss">
-                        <h3>Código y complejidad</h3>
+                        <h3>Pseudo Código y complejidad</h3>
                         <p>En programación, el método tradicional se encuentra realizado por una serie de ciclos que van obteniendo uno a uno el resultado de cada elemento de la matriz resultante. El código estaría ejemplificado tal que así:</p>
                         <center><img class="img-fluid" src="img/Imagen3.png" alt="código" style="width:50%"></center>
                         <p>Este método es conocido como método ingenuo o por fuerza bruta. Como podemos ver en el código, se hace la comprobación de que el numero de filas sea igual al numero de matrices de las respectivas matrices.
@@ -170,12 +160,45 @@
                 <div class="row ups">
                     <h3>Video explicativo</h3>
                     <div class="col-12">
-                        <center><video autoplay controls style="width:100%;">
-                            <source src="vid/FUERZA BRUTA.mp4" type="video/mp4">
-                        </video></center>
+                        <center><video controls style="width:100%;">
+                                <source src="vid/FUERZA BRUTA.mp4" type="video/mp4">
+                            </video></center>
                     </div>
                 </div>
             </div>
+
+        </div>
+        <br><br>
+        <div class="row ups text-center">
+            <h2>Propuestas de posters</h2>
+            <div class="col-12 ">
+                <div id="acarouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner text-center zoom-without-container">
+                        <div class="carousel-item active">
+                            <center><img src="img/GIF 2.gif" class="d-block " alt="Poster 1" style="height:600px; width: 450px;"></center>
+                        </div>
+                        <div class="carousel-item">
+                            <center><img src="img/GIF 3.gif" class="d-block" alt="Poster 2" style="height:600px; width: 450px;"></center>
+                        </div>
+                        <div class="carousel-item">
+                            <center><img src="img/GIF 4.gif" class="d-block" alt="Poster 3" style="height:600px; width: 450px;"></center>
+                        </div>
+                        <div class="carousel-item">
+                            <center><img src="img/GIF 1.gif" class="d-block" alt="Poster 4" style="height:600px; width: 450px;"></center>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#acarouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#acarouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <a class="btn btn-info ups" id="beginbtn" href="animations.html">Comenzar</a>
         </div>
     </div>
