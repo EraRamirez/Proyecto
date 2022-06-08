@@ -21,30 +21,34 @@ let tableSizeX1 = 1, //Almacena el valor en X de la matriz 1
 
 //Función para desaparecer con efecto fade un objeto
 function fade(element) {
-    let op = 1;
-    let timer = setInterval(function() {
-        if (op <= 0.1) {
-            clearInterval(timer);
-            element.style.display = 'none';
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.1;
-    }, 50);
+    if (element != null && element != undefined && element != NaN) {
+        let op = 1;
+        let timer = setInterval(function() {
+            if (op <= 0.1) {
+                clearInterval(timer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op -= op * 0.1;
+        }, 50);
+    }
 }
 
 //Función para aparecer con efecto fade un objeto
 function unfade(element) {
-    let op = 0.1;
-    element.style.display = 'block';
-    let timer = setInterval(function() {
-        if (op >= 1) {
-            clearInterval(timer);
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.1;
-    }, 10);
+    if (element != null && element != undefined && element != NaN) {
+        let op = 0.1;
+        element.style.display = 'block';
+        let timer = setInterval(function() {
+            if (op >= 1) {
+                clearInterval(timer);
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op += op * 0.1;
+        }, 10);
+    }
 }
 //Función usada para ocultar el menú principal
 function menu() {
@@ -675,7 +679,6 @@ function unHideMatrixes() {
 
 //Genera una cadena con el código de una tabla html basada en la matriz que se le da
 function printTable(A) {
-    console.log(A);
     let n = A.length;
     let m = A[0].length;
     let table = "<div class='table-responsive'><table class='table table-striped table-info'><tbody>";
@@ -737,7 +740,6 @@ function bruteForce(A, B) {
             }
             result.push(cols);
         }
-        console.log(result);
         return result;
     } else {
         return undefined;
@@ -865,8 +867,6 @@ function printHTMLTable(elementList, table) {
 function strassenAnimation(A, idOri, idMA, B, idMB) {
     matrixSegmentationAnimation(A, idOri, idMA);
     matrixSegmentationAnimation(B, idOri, idMB);
-    let x = document.getElementsByName('paso1');
-    unfade(x[0]);
     let halfA = A.length / 2,
         halfB = B.length / 2,
         a = getSubMatrix(A, 0, halfA, 0, halfA),
@@ -912,11 +912,7 @@ function strassenAnimation(A, idOri, idMA, B, idMB) {
         rp6 = document.getElementsByName('rp6'),
         rac = document.getElementsByName('rac'),
         sef = document.getElementsByName('sef'),
-        rp7 = document.getElementsByName('rp7'),
-        step1 = document.getElementsByName('paso1'),
-        step2 = document.getElementById('paso2'),
-        step3 = document.getElementById('paso3'),
-        step4 = document.getElementById('paso4');
+        rp7 = document.getElementsByName('rp7');
     printHTMLTable(tagA, printTable(a));
     printHTMLTable(tagB, printTable(b));
     printHTMLTable(tagC, printTable(c));
@@ -946,19 +942,106 @@ function strassenAnimation(A, idOri, idMA, B, idMB) {
     m12.innerHTML = printTable(getSubMatrix(tableResult, tableResult.length / 2, tableResult.length, 0, tableResult.length / 2));
     m21.innerHTML = printTable(getSubMatrix(tableResult, 0, tableResult.length / 2, tableResult.length / 2, tableResult.length));
     m22.innerHTML = printTable(getSubMatrix(tableResult, tableResult.length / 2, tableResult.length, tableResult.length / 2, tableResult.length));
-    fade(step2);
-    fade(step3);
-    fade(step4);
-    fade(document.getElementById('p1'));
-    fade(document.getElementById('p2'));
-    fade(document.getElementById('p3'));
-    fade(document.getElementById('p4'));
-    fade(document.getElementById('p5'));
-    fade(document.getElementById('p6'));
-    fade(document.getElementById('p7'));
-    fade(document.getElementById('pasoM'));
     let r = document.getElementById('results');
     r.innerHTML = printTable(tableResult);
+}
+
+function verifyActive(array) {
+    for (let i in array) {
+        if (array[i] == 'Active' || array[i] == "active") return true;
+    }
+    return false;
+}
+
+function animatePart(id) {
+    switch (id) {
+        case 'paso1':
+            console.log("holi");
+            setTimeout(() => { unfade(document.getElementById('codp1')) }, 2000);
+            break;
+        case 'paso4':
+            setTimeout(() => { unfade(document.getElementById('codp4')) }, 2000);
+            break;
+        case 'paso2p1':
+            setTimeout(() => { unfade(document.getElementById('codp2p1')) }, 2000);
+            break;
+        case 'paso2p2':
+            setTimeout(() => { unfade(document.getElementById('codp2p2')) }, 2000);
+            break;
+        case 'paso2p3':
+            setTimeout(() => { unfade(document.getElementById('codp2p3')) }, 2000);
+            break;
+        case 'paso2p4':
+            setTimeout(() => { unfade(document.getElementById('codp2p4')) }, 2000);
+            break;
+        case 'paso2p5':
+            setTimeout(() => { unfade(document.getElementById('codp2p5')) }, 2000);
+            break;
+        case 'paso2p6':
+            setTimeout(() => { unfade(document.getElementById('codp2p6')) }, 2000);
+            break;
+        case 'paso2p7':
+            setTimeout(() => { unfade(document.getElementById('codp2p7')) }, 2000);
+            break;
+        case 'paso3p1':
+            setTimeout(() => { unfade(document.getElementById('codp3p1')) }, 2000);
+            break;
+        case 'paso3p2':
+            setTimeout(() => { unfade(document.getElementById('codp3p2')) }, 2000);
+            break;
+        default:
+            break;
+    }
+}
+
+function getActiveElementBack() {
+    let elements = document.getElementsByName('carouselItem');
+    for (let i = 0; i < elements.length; i++) {
+        let clases = elements[i].className;
+        clases = clases.split(" ");
+        if (verifyActive(clases)) {
+            if (elements[i] != undefined) {
+                fade(document.getElementById(elements[i].id));
+                if (i - 1 >= 0) setTimeout(() => { unfade(document.getElementById(elements[i - 1].id)); }, 2000);
+                else setTimeout(() => { unfade(document.getElementById(elements[elements.length - 1].id)); }, 2000);
+            }
+        }
+    }
+}
+
+function clearStrassenAnimation(elementFather) {
+    if (elementFather != undefined) {
+        let childs = elementFather.childNodes;
+        for (let i = childs.length - 1; i >= 0; i--) {
+            clearStrassenAnimation(childs[i]);
+            childs[i].remove();
+        }
+    }
+}
+
+function getActiveElementFront() {
+    let elements = document.getElementsByName('carouselItem');
+    for (let i = 0; i < elements.length; i++) {
+        let clases = elements[i].className;
+        clases = clases.split(" ");
+        if (verifyActive(clases)) {
+            if (elements[i] != undefined) {
+                fade(document.getElementById(elements[i].id));
+                if (i + 1 < elements.length) {
+                    setTimeout(() => {
+                        unfade(document.getElementById(elements[i + 1].id));
+                    }, 2000);
+                    animatePart(elements[i + 1].id);
+                } else {
+                    setTimeout(() => { unfade(document.getElementById(elements[0].id)); }, 2000);
+                    animatePart(elements[0].id);
+                    clearStrassenAnimation(document.getElementById('matrixSegmented'));
+                    clearStrassenAnimation(document.getElementById('matrixSegmented2'));
+                    strassenAnimation(tableValues, 'strassenAnimation', 'matrixSegmented', tableValues2, 'matrixSegmented2');
+                }
+            }
+        }
+    }
 }
 
 //Genera un color aleatorio para la animación de las tablas
@@ -1062,6 +1145,7 @@ function stAnima() {
     fade(document.getElementById('lockedTables'));
     if (strs && tableValues.length <= 16) {
         strassenAnimation(tableValues, 'strassenAnimation', 'matrixSegmented', tableValues2, 'matrixSegmented2');
+        showComplexity();
     } else if (strs) {
         alert("Para poder ver una animación del procedimiento, se recomienda usar matrices de 8x8 o 4x4");
         showComplexity();
@@ -1070,7 +1154,8 @@ function stAnima() {
             alert("Para poder ver una animación del procedimiento se recomienda usar matrices menores a 12x12");
             showComplexity();
         } else {
-            setTimeout(() => { bfAnima(); }, 2000);
+            bfAnima();
+            showComplexity();
         }
 
     }
@@ -1112,11 +1197,6 @@ function lockTables() {
         } else
             alert("No se puede realizar el producto, prueba con otra combinación ya que para que se pueda hacer se ocupa que las filas de la Matriz B sea igual que al de columnas de la Matriz A");
     }
-    /*let dd = getSubMatrix(tableValues, 0, tableValues[0].length / 2, 0, tableValues.length / 2);
-    console.log(dd);
-    let xd = printTable(dd);
-    console.log(xd);
-    d.innerHTML = xd;*/
     if (tableValues.length <= 256) {
         if (strs) title += " usando Strassen";
         else title += " usando Fuerza bruta";
@@ -1156,9 +1236,7 @@ function preCalculateMemory(noVars) {
 
 //Función para mostrar la complejidad y tablas que se muestran para ejemplificar cuántas operaciones hace y demás
 function showComplexity() {
-    fade(document.getElementById('strassenAnimation'));
-    fade(document.getElementById('bruteforceAnimation'));
-    setTimeout(() => { unfade(document.getElementById('complex')) }, 1000);
+    document.getElementById('tablesAnima2').style.display = "block";
     document.getElementById('lockedTables').style.display = "none";
     let c2 = document.getElementById('complexitySTS'),
         c4 = document.getElementById('complexityDACT'),
@@ -1166,6 +1244,12 @@ function showComplexity() {
         g = document.getElementById('timeResult3'),
         h = document.getElementById('memoryBrute'),
         k = document.getElementById('memorySts'),
+        c21 = document.getElementById('complexitySTS1'),
+        c41 = document.getElementById('complexityDACT1'),
+        f1 = document.getElementById('timeResult21'),
+        g1 = document.getElementById('timeResult31'),
+        h1 = document.getElementById('memoryBrute1'),
+        k1 = document.getElementById('memorySts1'),
         cDAC = Math.pow(tableSizeX1, 3),
         cSTS = Math.floor(Math.pow(tableSizeX1, 2.81));
     if (strs) {
@@ -1179,17 +1263,19 @@ function showComplexity() {
         drawGraph1(getArray(cSTS));
         document.getElementById('bfGraph').style.display = "none";
     } else {
+        console.log("hil1");
         document.getElementById('bfGraph').style.display = "block";
-        c2.innerHTML = "No se puede usar Strassen por este m&eacute;todo.";
-        k.innerHTML = g.innerHTML = "No aplica";
+        c21.innerHTML = "No se puede usar Strassen por este m&eacute;todo.";
+        k1.innerHTML = g1.innerHTML = "No aplica";
         let memoryUsedBrute = preCalculateMemory((4 + (tableSizeX1 * tableSizeY1) + (tableSizeX2 * tableSizeY2) + (tableSizeX1 * tableSizeY2)));
-        h.innerHTML = (memoryUsedBrute);
-        if (timeBrute > 1000) f.innerHTML = (timeBrute / 1000 + " s");
-        else f.innerHTML = (timeBrute + " ms");
+        h1.innerHTML = (memoryUsedBrute);
+        if (timeBrute > 1000) f1.innerHTML = (timeBrute / 1000 + " s");
+        else f1.innerHTML = (timeBrute + " ms");
         drawGraph(getArray(cDAC));
         document.getElementById('stsGraphs').style.display = "none";
+        c41.innerHTML = cDAC;
     }
-    c4.innerHTML = cDAC;
+    console.log("hil2");
 }
 
 //Función para invocar la animación por fuerza
@@ -1223,7 +1309,6 @@ function nextStep(pasoSig, pasoAct) {
     }
     let t = document.getElementsByName(pasoSig);
     let t1 = document.getElementsByName(pasoAct);
-    console.log(t1, t);
     if (t != null && t != undefined && t.length > 0) t[0].style.display = 'block';
     if (t1 != null && t1 != undefined && t1.length > 0) t1[0].style.display = 'none';
 
@@ -1246,7 +1331,6 @@ let pos = 0;
 
 function nextSlide() {
     let id = "poster" + pos + 1;
-    console.log("hola");
     let x = document.getElementById(id);
     x.setAttribute('class', 'active');
 

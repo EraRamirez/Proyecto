@@ -72,3 +72,14 @@ img {
     transform: scale(1.5);
     /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
+
+.cars {
+    color: black;
+}
+
+.bggray {
+    background-color: gray;
+    opacity: 0.3;
+    padding-top: 25%;
+    padding-bottom: 25%;
+}
