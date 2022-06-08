@@ -1152,6 +1152,8 @@ function stAnima() {
     } else {
         if (tableValues.length > 12) {
             alert("Para poder ver una animación del procedimiento se recomienda usar matrices menores a 12x12");
+            document.getElementById('bruteforceAnimation').style.display = 'block';
+            document.getElementById('btProce').style.display = 'none';
             showComplexity();
         } else {
             bfAnima();

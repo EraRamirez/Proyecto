@@ -86,8 +86,10 @@
                                     <br>
                                 </div>
                             </div>
-
-                            <input type="button" value="Generar matriz" onclick="setSize(this.form,true)" class="btn btn-info" />
+                            <div class="btn-group">
+                                <input type="button" value="Generar matriz" onclick="setSize(this.form,true)" class="btn btn-info" />
+                                <button class="btn btn-info" onclick="location.reload()">Regresar</button>
+                            </div>
                         </form>
                     </div>
 
@@ -125,7 +127,10 @@
                                 </div>
                             </div>
 
-                            <input type="button" value="Generar matriz" onclick="setSize(this.form,false)" class="btn btn-info" />
+                            <div class="btn-group">
+                                <input type="button" value="Generar matriz" onclick="setSize(this.form,false)" class="btn btn-info" />
+                                <button class="btn btn-info" onclick="location.reload()">Regresar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -852,6 +857,9 @@
                     </div>
                 </div>
             </div>
+            <div class="btn-group">
+                <button class="btn btn-info" onclick="location.reload()">Salir</button>
+            </div>
         </div>
     </div>
     <div id="bruteforceAnimation" class="container hide">
@@ -918,8 +926,7 @@
                 </div>
             </div>
             <div class="btn-group">
-
-                <button class="btn btn-info" onclick="location.reload()">Salir</button>
+                <button class="btn btn-info" href="index.html">Salir</button>
             </div>
         </div>
     </div>
