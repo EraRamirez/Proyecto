@@ -1259,7 +1259,7 @@ function showComplexity() {
         k1 = document.getElementById('memorySts1'),
         cDAC = Math.pow((tableSizeX1 * tableSizeY1) + (tableSizeX2 * tableSizeY2), 3),
         cSTS = Math.floor(Math.pow(tableSizeX1, 2.81));
-    if (strs) {
+    if (strs && tableValues.length <= 16) {
         c2.innerHTML = cSTS;
         c4.innerHTML = cDAC;
         document.getElementById('stsGraphs').style.display = "block";
@@ -1273,6 +1273,24 @@ function showComplexity() {
         k.innerHTML = (memoryUsedSts);
         drawGraph1(getArray(cSTS));
         document.getElementById('bfGraph').style.display = "none";
+    } else if (strs) {
+        document.getElementById('bruteforceAnimation').style.display = 'block';
+        document.getElementById('btProce').style.display = 'none';
+        document.getElementById('tablesAnima2').style.display = 'block';
+        c21.innerHTML = cSTS;
+        c41.innerHTML = cDAC;
+        document.getElementById('stsGraphs').style.display = "block";
+        if (timeStrassen > 1000) g1.innerHTML = (timeStrassen / 1000 + " s");
+        else g1.innerHTML = (timeStrassen + " ms");
+        let memoryUsedBrute = preCalculateMemory((4 + (tableSizeX1 * tableSizeY1) + (tableSizeX2 * tableSizeY2) + (tableSizeX1 * tableSizeY2)));
+        if (timeBrute > 1000) f1.innerHTML = (timeBrute / 1000 + " s");
+        else f1.innerHTML = (timeBrute + " ms");
+        h1.innerHTML = memoryUsedBrute;
+        let memoryUsedSts = preCalculateMemory(memoryUsedStPre + 16 + Math.pow(tableResult.length, 2));
+        k1.innerHTML = (memoryUsedSts);
+        document.getElementById('h2Anima').innerHTML = "Gr&aacute;fica de tiempo de resoluci&oacute;n usando Strassen";
+        drawGraph(getArray(cSTS));
+        document.getElementById('bfGraph').style.display = "block";
     } else {
         document.getElementById('bfGraph').style.display = "block";
         c21.innerHTML = "No se puede usar Strassen por este m&eacute;todo.";
