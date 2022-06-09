@@ -1189,6 +1189,11 @@ function lockTables() {
         tableResult = result;
         timeStrassen = endTime - beginTime;
         strs = true;
+        let beginTime2 = new Date().getTime();
+        result = bruteForce(tableValues, tableValues2);
+        let endTime2 = new Date().getTime();
+        tableResult = result;
+        timeBrute = endTime2 - beginTime2;
     } else {
         if (tableValues[0].length == tableValues2.length) {
             let beginTime2 = new Date().getTime();
@@ -1252,20 +1257,23 @@ function showComplexity() {
         g1 = document.getElementById('timeResult31'),
         h1 = document.getElementById('memoryBrute1'),
         k1 = document.getElementById('memorySts1'),
-        cDAC = Math.pow(tableSizeX1, 3),
+        cDAC = Math.pow((tableSizeX1 * tableSizeY1) + (tableSizeX2 * tableSizeY2), 3),
         cSTS = Math.floor(Math.pow(tableSizeX1, 2.81));
     if (strs) {
         c2.innerHTML = cSTS;
+        c4.innerHTML = cDAC;
         document.getElementById('stsGraphs').style.display = "block";
         if (timeStrassen > 1000) g.innerHTML = (timeStrassen / 1000 + " s");
         else g.innerHTML = (timeStrassen + " ms");
-        h.innerHTML = f.innerHTML = "No aplica";
+        let memoryUsedBrute = preCalculateMemory((4 + (tableSizeX1 * tableSizeY1) + (tableSizeX2 * tableSizeY2) + (tableSizeX1 * tableSizeY2)));
+        if (timeBrute > 1000) f.innerHTML = (timeBrute / 1000 + " s");
+        else f.innerHTML = (timeBrute + " ms");
+        h.innerHTML = memoryUsedBrute;
         let memoryUsedSts = preCalculateMemory(memoryUsedStPre + 16 + Math.pow(tableResult.length, 2));
         k.innerHTML = (memoryUsedSts);
         drawGraph1(getArray(cSTS));
         document.getElementById('bfGraph').style.display = "none";
     } else {
-        console.log("hil1");
         document.getElementById('bfGraph').style.display = "block";
         c21.innerHTML = "No se puede usar Strassen por este m&eacute;todo.";
         k1.innerHTML = g1.innerHTML = "No aplica";
@@ -1277,7 +1285,6 @@ function showComplexity() {
         document.getElementById('stsGraphs').style.display = "none";
         c41.innerHTML = cDAC;
     }
-    console.log("hil2");
 }
 
 //Función para invocar la animación por fuerza

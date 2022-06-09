@@ -21,7 +21,7 @@
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info" style="margin-bottom:5rem;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">De panzazo</a>
+                <a class="navbar-brand" href="index.html"><img src="img/logo.png" style="height:35px; width: auto; background-color:white;"></a>
                 <button class="navbar-toggler bg-info2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon bg-info2"></span>
             </button>
@@ -29,9 +29,6 @@
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Información</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="posters.html">Posters</a>
@@ -103,6 +100,7 @@
                         <form method="post">
                             <div class="row">
                                 <div class="col">
+                                    <h3>Matriz A</h3>
                                     <label class="form-label">Ingresa la cantidad de filas:</label>
                                     <input required type="number" name="sizey1" class="form-control" placeholder="1" onChange="GetNumbery1(this.form)" />
                                     <label class="form-label">Ingresa la cantidad de columnas:</label>
@@ -116,6 +114,7 @@
                                     <br>
                                 </div>
                                 <div class="col">
+                                    <h3>Matriz B</h3>
                                     <label class="form-label">Ingresa la cantidad de filas:</label>
                                     <input required type="number" name="sizey2" class="form-control" placeholder="1" onChange="GetNumbery2(this.form)" />
                                     <label class="form-label">Ingresa la cantidad de columnas:</label>
@@ -295,17 +294,17 @@
                                                                 <div class="col">
                                                                     <h4>F - H = K</h4>
                                                                     <div class="row">
-                                                                        <div name="F" class="col-4"></div>
-                                                                        <div name="H" class="col-4"></div>
-                                                                        <div name="rfh" class="col-4"></div>
+                                                                        <div name="F" class="col"></div>
+                                                                        <div name="H" class="col"></div>
+                                                                        <div name="rfh" class="col"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col">
                                                                     <h4>A * K</h4>
                                                                     <div class="row">
-                                                                        <div name="A" class="col-4"></div>
-                                                                        <div name="rfh" class="col-4"></div>
-                                                                        <div name="rp1" class="col-4"></div>
+                                                                        <div name="A" class="col"></div>
+                                                                        <div name="rfh" class="col"></div>
+                                                                        <div name="rp1" class="col"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -335,15 +334,15 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="row">
-                                                                <div class="col-4">
+                                                                <div class="col">
                                                                     <h5>A</h5>
                                                                     <div name="A"></div>
                                                                 </div>
-                                                                <div class="col-4">
+                                                                <div class="col">
                                                                     <h5>B</h5>
                                                                     <div name="B"></div>
                                                                 </div>
-                                                                <div class="col-4">
+                                                                <div class="col">
                                                                     <h5>H</h5>
                                                                     <div name="H"></div>
                                                                 </div>
@@ -352,17 +351,17 @@
                                                         <div class="col-12">
                                                             <h4>A + B = K</h4>
                                                             <div class="row">
-                                                                <div name="A" class="col-4"></div>
-                                                                <div name="B" class="col-4"></div>
-                                                                <div name="sab" class="col-4"></div>
+                                                                <div name="A" class="col"></div>
+                                                                <div name="B" class="col"></div>
+                                                                <div name="sab" class="col"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <h4>H * K</h4>
                                                             <div class="row">
-                                                                <div name="H" class="col-4"></div>
-                                                                <div name="sab" class="col-4"></div>
-                                                                <div name="rp2" class="col-4"></div>
+                                                                <div name="H" class="col"></div>
+                                                                <div name="sab" class="col"></div>
+                                                                <div name="rp2" class="col"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -390,15 +389,15 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="row">
-                                                                <div class="col-4">
+                                                                <div class="col">
                                                                     <h5>C</h5>
                                                                     <div name="C"></div>
                                                                 </div>
-                                                                <div class="col-4">
+                                                                <div class="col">
                                                                     <h5>D</h5>
                                                                     <div name="D"></div>
                                                                 </div>
-                                                                <div class="col-4">
+                                                                <div class="col">
                                                                     <h5>E</h5>
                                                                     <div name="E"></div>
                                                                 </div>
@@ -407,17 +406,17 @@
                                                         <div class="col-12">
                                                             <h4>C + D = K</h4>
                                                             <div class="row">
-                                                                <div name="C" class="col-4"></div>
-                                                                <div name="D" class="col-4"></div>
-                                                                <div name="scd" class="col-4"></div>
+                                                                <div name="C" class="col"></div>
+                                                                <div name="D" class="col"></div>
+                                                                <div name="scd" class="col"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <h4>E * K</h4>
                                                             <div class="row">
-                                                                <div name="E" class="col-4"></div>
-                                                                <div name="scd" class="col-4"></div>
-                                                                <div name="rp3" class="col-4"></div>
+                                                                <div name="E" class="col"></div>
+                                                                <div name="scd" class="col"></div>
+                                                                <div name="rp3" class="col"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -445,15 +444,15 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="row">
-                                                                <div class="col-4">
+                                                                <div class="col">
                                                                     <h5>G</h5>
                                                                     <div name="G"></div>
                                                                 </div>
-                                                                <div class="col-4">
+                                                                <div class="col">
                                                                     <h5>D</h5>
                                                                     <div name="D"></div>
                                                                 </div>
-                                                                <div class="col-4">
+                                                                <div class="col">
                                                                     <h5>E</h5>
                                                                     <div name="E"></div>
                                                                 </div>
@@ -462,17 +461,17 @@
                                                         <div class="col-12">
                                                             <h4>G - E = K</h4>
                                                             <div class="row">
-                                                                <div name="G" class="col-4"></div>
-                                                                <div name="E" class="col-4"></div>
-                                                                <div name="rge" class="col-4"></div>
+                                                                <div name="G" class="col"></div>
+                                                                <div name="E" class="col"></div>
+                                                                <div name="rge" class="col"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <h4>D * K</h4>
                                                             <div class="row">
-                                                                <div name="D" class="col-4"></div>
-                                                                <div name="rge" class="col-4"></div>
-                                                                <div name="rp4" class="col-4"></div>
+                                                                <div name="D" class="col"></div>
+                                                                <div name="rge" class="col"></div>
+                                                                <div name="rp4" class="col"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -500,19 +499,19 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="row">
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>A</h5>
                                                                     <div name="A"></div>
                                                                 </div>
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>D</h5>
                                                                     <div name="D"></div>
                                                                 </div>
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>E</h5>
                                                                     <div name="E"></div>
                                                                 </div>
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>H</h5>
                                                                     <div name="H"></div>
                                                                 </div>
@@ -523,17 +522,17 @@
                                                                 <div class="col-6">
                                                                     <h4>A + D = K</h4>
                                                                     <div class="row">
-                                                                        <div name="A" class="col-4"></div>
-                                                                        <div name="D" class="col-4"></div>
-                                                                        <div name="sad" class="col-4"></div>
+                                                                        <div name="A" class="col"></div>
+                                                                        <div name="D" class="col"></div>
+                                                                        <div name="sad" class="col"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <h4>E + H = J</h4>
                                                                     <div class="row">
-                                                                        <div name="E" class="col-4"></div>
-                                                                        <div name="H" class="col-4"></div>
-                                                                        <div name="seh" class="col-4"></div>
+                                                                        <div name="E" class="col"></div>
+                                                                        <div name="H" class="col"></div>
+                                                                        <div name="seh" class="col"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -541,9 +540,9 @@
                                                         <div class="col-12">
                                                             <h4>J * K</h4>
                                                             <div class="row">
-                                                                <div name="sad" class="col-4"></div>
-                                                                <div name="seh" class="col-4"></div>
-                                                                <div name="rp5" class="col-4"></div>
+                                                                <div name="sad" class="col"></div>
+                                                                <div name="seh" class="col"></div>
+                                                                <div name="rp5" class="col"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -571,19 +570,19 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="row">
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>B</h5>
                                                                     <div name="B"></div>
                                                                 </div>
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>D</h5>
                                                                     <div name="D"></div>
                                                                 </div>
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>G</h5>
                                                                     <div name="G"></div>
                                                                 </div>
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>H</h5>
                                                                     <div name="H"></div>
                                                                 </div>
@@ -594,17 +593,17 @@
                                                                 <div class="col-6">
                                                                     <h4>B - D = K</h4>
                                                                     <div class="row">
-                                                                        <div name="B" class="col-4"></div>
-                                                                        <div name="D" class="col-4"></div>
-                                                                        <div name="rbd" class="col-4"></div>
+                                                                        <div name="B" class="col"></div>
+                                                                        <div name="D" class="col"></div>
+                                                                        <div name="rbd" class="col"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <h4>G + H = J</h4>
                                                                     <div class="row">
-                                                                        <div name="G" class="col-4"></div>
-                                                                        <div name="H" class="col-4"></div>
-                                                                        <div name="sgh" class="col-4"></div>
+                                                                        <div name="G" class="col"></div>
+                                                                        <div name="H" class="col"></div>
+                                                                        <div name="sgh" class="col"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -612,9 +611,9 @@
                                                         <div class="col-12">
                                                             <h4>J * K</h4>
                                                             <div class="row">
-                                                                <div name="rbd" class="col-4"></div>
-                                                                <div name="sgh" class="col-4"></div>
-                                                                <div name="rp5" class="col-4"></div>
+                                                                <div name="rbd" class="col"></div>
+                                                                <div name="sgh" class="col"></div>
+                                                                <div name="rp5" class="col"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -642,19 +641,19 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="row">
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>A</h5>
                                                                     <div name="A"></div>
                                                                 </div>
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>C</h5>
                                                                     <div name="C"></div>
                                                                 </div>
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>E</h5>
                                                                     <div name="E"></div>
                                                                 </div>
-                                                                <div class="col-3">
+                                                                <div class="col">
                                                                     <h5>F</h5>
                                                                     <div name="F"></div>
                                                                 </div>
@@ -665,17 +664,17 @@
                                                                 <div class="col-6">
                                                                     <h4>A - C = K</h4>
                                                                     <div class="row">
-                                                                        <div name="A" class="col-4"></div>
-                                                                        <div name="C" class="col-4"></div>
-                                                                        <div name="rac" class="col-4"></div>
+                                                                        <div name="A" class="col"></div>
+                                                                        <div name="C" class="col"></div>
+                                                                        <div name="rac" class="col"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <h4>E + F = J</h4>
                                                                     <div class="row">
-                                                                        <div name="E" class="col-4"></div>
-                                                                        <div name="F" class="col-4"></div>
-                                                                        <div name="sef" class="col-4"></div>
+                                                                        <div name="E" class="col"></div>
+                                                                        <div name="F" class="col"></div>
+                                                                        <div name="sef" class="col"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -683,9 +682,9 @@
                                                         <div class="col-12">
                                                             <h4>J * K</h4>
                                                             <div class="row">
-                                                                <div name="rac" class="col-4"></div>
-                                                                <div name="sef" class="col-4"></div>
-                                                                <div name="rp5" class="col-4"></div>
+                                                                <div name="rac" class="col"></div>
+                                                                <div name="sef" class="col"></div>
+                                                                <div name="rp5" class="col"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
